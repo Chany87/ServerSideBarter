@@ -11,8 +11,8 @@ namespace DAL.Models
         {
             CategoryUsers = new HashSet<CategoryUser>();
             CustomerInquiries = new HashSet<CustomerInquiry>();
-            MassageUserIdGivenNavigations = new HashSet<Massage>();
-            MassageUsreIdReceivedNavigations = new HashSet<Massage>();
+            MessageUserIdGivenNavigations = new HashSet<Message>();
+            MessageUsreIdReceivedNavigations = new HashSet<Message>();
             OpinionDrages = new HashSet<Opinion>();
             OpinionGradeds = new HashSet<Opinion>();
             Publications = new HashSet<Publication>();
@@ -33,8 +33,8 @@ namespace DAL.Models
         public virtual City City { get; set; }
         public virtual ICollection<CategoryUser> CategoryUsers { get; set; }
         public virtual ICollection<CustomerInquiry> CustomerInquiries { get; set; }
-        public virtual ICollection<Massage> MassageUserIdGivenNavigations { get; set; }
-        public virtual ICollection<Massage> MassageUsreIdReceivedNavigations { get; set; }
+        public virtual ICollection<Message> MessageUserIdGivenNavigations { get; set; }
+        public virtual ICollection<Message> MessageUsreIdReceivedNavigations { get; set; }
         public virtual ICollection<Opinion> OpinionDrages { get; set; }
         public virtual ICollection<Opinion> OpinionGradeds { get; set; }
         public virtual ICollection<Publication> Publications { get; set; }

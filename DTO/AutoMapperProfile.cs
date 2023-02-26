@@ -16,8 +16,8 @@ namespace DTO
             CreateMap<Category, CategoryDTO>();
             CreateMap<User, UserDTO>().ForMember(x => x.CityName, y => y.MapFrom(a => a.City.CityName));
             CreateMap<UserDTO, User>();
-            CreateMap<Massage, MassageDTO>();
-            CreateMap<MassageDTO, Massage>();
+            CreateMap<Message, MessageDTO>();
+            CreateMap<MessageDTO, Message>();
             CreateMap<OpinionDTO, Opinion>();
             CreateMap<Opinion, OpinionDTO>();
             CreateMap<Star, StarDTO>();
@@ -33,8 +33,7 @@ namespace DTO
             CreateMap<CategoryUser, CategoryUserDTO>();
 
             CreateMap<User, UserCreateRequest>();
-            CreateMap<AdminMassage, AdminMassageDTO>();
-            CreateMap<AdminMassageDTO,AdminMassage>();
+        
         }
     }
 }

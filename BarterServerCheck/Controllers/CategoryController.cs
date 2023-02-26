@@ -57,15 +57,13 @@ namespace BarterServer.Controllers
             return _categoryBL.DeleteCategory(id);
         }
         [HttpPut]
-        [Route("UpdateCategory")]
+        [Route("UpdateCategory/{id}")]
         public bool UpdateCategory(int id, [FromBody] CategoryDTO category)
         {
             return _categoryBL.UpdateCategory(id, category);
         }
     }
 }
-
-
 
 
 

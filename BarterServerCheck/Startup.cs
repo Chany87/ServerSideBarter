@@ -1,5 +1,6 @@
 using BL;
 using DAL;
+using DAL.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -51,8 +52,8 @@ namespace BarterServerCheck
 
             services.AddScoped<IUserBL, UserBL>();
             services.AddScoped<IUserDAL, UserDAL>();
-            services.AddScoped<IMassageBL, MassageBL>();
-            services.AddScoped<IMassegeDAL, MassegeDAL>();
+            services.AddScoped<IMessageBL, MessageBL>();
+            services.AddScoped<IMessagesDAL, MessagesDAL>();
             services.AddScoped<IStarBL, StarBL>();
             services.AddScoped<IStarDAL, StarDAL>();
             services.AddScoped<IPublicationBL, PublicationBL>();
@@ -65,8 +66,6 @@ namespace BarterServerCheck
             services.AddScoped<ICustomerInquiryDAL, CustomerInquiryDAL>();
             services.AddScoped<ICityBL, CityBL>();
             services.AddScoped<ICityDAL, CityDAL>();
-            services.AddScoped<IAdminMassageDAL,AdminMassageDAL >();
-            services.AddScoped<IAdminMessageBL, AdminMessageBL>();
 
 
         }

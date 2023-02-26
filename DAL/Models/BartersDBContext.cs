@@ -17,13 +17,12 @@ namespace DAL.Models
         {
         }
 
-        public virtual DbSet<AdminMassage> AdminMassages { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<CategoryUser> CategoryUsers { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<CustomerInquiry> CustomerInquiries { get; set; }
         public virtual DbSet<Manager> Managers { get; set; }
-        public virtual DbSet<Massage> Massages { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<Opinion> Opinions { get; set; }
         public virtual DbSet<Publication> Publications { get; set; }
         public virtual DbSet<Star> Stars { get; set; }
@@ -40,13 +39,6 @@ namespace DAL.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AdminMassage>(entity =>
-            {
-                entity.ToTable("AdminMassage");
-
-                entity.Property(e => e.Phone).IsRequired();
-            });
-
             modelBuilder.Entity<Category>(entity =>
             {
                 entity.ToTable("Category");
@@ -90,19 +82,19 @@ namespace DAL.Models
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
             });
 
-            modelBuilder.Entity<Massage>(entity =>
+            modelBuilder.Entity<Message>(entity =>
             {
-                entity.Property(e => e.MassageDate).HasColumnType("date");
+                entity.Property(e => e.MessageDate).HasColumnType("date");
 
                 entity.HasOne(d => d.UserIdGivenNavigation)
-                    .WithMany(p => p.MassageUserIdGivenNavigations)
+                    .WithMany(p => p.MessageUserIdGivenNavigations)
                     .HasForeignKey(d => d.UserIdGiven)
-                    .HasConstraintName("FK__Massages__UserId__0880433F");
+                    .HasConstraintName("FK_Massages_Users1");
 
                 entity.HasOne(d => d.UsreIdReceivedNavigation)
-                    .WithMany(p => p.MassageUsreIdReceivedNavigations)
+                    .WithMany(p => p.MessageUsreIdReceivedNavigations)
                     .HasForeignKey(d => d.UsreIdReceived)
-                    .HasConstraintName("FK__Massages__UsreId__078C1F06");
+                    .HasConstraintName("FK_Massages_Users");
             });
 
             modelBuilder.Entity<Opinion>(entity =>

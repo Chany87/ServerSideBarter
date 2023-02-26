@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class MassageDTO
+    public class MessageDTO
     {
         public int Id { get; set; }
-        public int? UsreIdReceived { get; set; }
+        public string UserName { get; set; }
         public int? UserIdGiven { get; set; }
-        public DateTime? MassageDate { get; set; }
-        public string MassageContent { get; set; }
+        public int? UsreIdReceived { get; set; }
+        public string Phone { get; set; }
+        public string MessageContent { get; set; }
         public string Image { get; set; }
+        public DateTime? MessageDate { get; set; }
 
     }
 }

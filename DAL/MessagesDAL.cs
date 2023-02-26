@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class AdminMassageDAL : IAdminMassageDAL
+    public class MessagesDAL : IMessagesDAL
     {
-        BartersDBContext bartersDBContext = new BartersDBContext();
+        BartersDBContext bartersDBContext=new BartersDBContext();
 
-        public List<AdminMassage> GetAdminMassages()
+        public List<Message> GetMessages()
         {
             try
             {
-                var massege = bartersDBContext.AdminMassages.ToList();
+                var massege = bartersDBContext.Messages.Include(e=>e.UserIdGivenNavigation).ToList();
                 return massege;
 
             }
@@ -26,11 +27,11 @@ namespace DAL
 
         }
 
-        public AdminMassage GetMassageById(int id)
+        public Message GetMessageById(int id)
         {
             try
             {
-                var Massege = bartersDBContext.AdminMassages.SingleOrDefault(x => x.Id == id);
+                var Massege = bartersDBContext.Messages.SingleOrDefault(x => x.Id == id);
                 return Massege;
             }
             catch (Exception ex)
@@ -38,13 +39,13 @@ namespace DAL
                 throw ex;
             }
         }
-        public bool AddAdminMessages(AdminMassage adminMessage)
+        public bool AddMessage(Message message)
         {
             //פונקצית הוספה
             try
             {
 
-                bartersDBContext.AdminMassages.Add(adminMessage);
+                bartersDBContext.Messages.Add(message);
                 bartersDBContext.SaveChanges();
                 return true;
             }
@@ -54,5 +55,7 @@ namespace DAL
             }
 
         }
+
+   
     }
 }
