@@ -27,13 +27,13 @@ namespace BarterServerCheck.Controllers
         }
 
         [HttpGet]
-        [Route("GatMessegeById")]
+        [Route("GetMessageById/{id}")]
         public ActionResult<MessageDTO[]> GatMessegeById(int id)
         {
-            MessageDTO massage = _iMessageBL.GetMessegeById(id);
-            if(massage == null)
+            List<MessageDTO> massages = _iMessageBL.GetMessegeById(id);
+            if(massages == null)
                 return NotFound();
-            return Ok(massage);
+            return Ok(massages);
         }
 
         [HttpPost]

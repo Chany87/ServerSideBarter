@@ -7,6 +7,6 @@ namespace DAL
     {
         bool AddMessage(Message message);
         List<Message> GetMessages();
-        Message GetMessageById(int id);
+        List<Message> GetMessageById(int id);
     }
 }

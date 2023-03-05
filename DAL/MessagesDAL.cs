@@ -27,11 +27,11 @@ namespace DAL
 
         }
 
-        public Message GetMessageById(int id)
+        public List<Message> GetMessageById(int id)
         {
             try
             {
-                var Massege = bartersDBContext.Messages.SingleOrDefault(x => x.Id == id);
+                var Massege = bartersDBContext.Messages.Where(x => x.UsreIdReceived == id).ToList();
                 return Massege;
             }
             catch (Exception ex)

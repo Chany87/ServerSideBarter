@@ -41,12 +41,12 @@ namespace BL
             return messages;
         }
 
-        public MessageDTO GetMessegeById(int id)
+        public List<MessageDTO> GetMessegeById(int id)
         {
             try
             {
                 var massege = _Messages.GetMessageById(id);
-                return mapper.Map<MessageDTO>(massege);
+                return mapper.Map<List<MessageDTO>>(massege);
             }
 
             catch (Exception ex)

@@ -7,6 +7,6 @@ namespace BL
     {
         bool AddMessage(MessageDTO MessageDTO);
         List<MessageDTO> GetMessages();
-        MessageDTO GetMessegeById(int id);
+        List<MessageDTO> GetMessegeById(int id);
     }
 }
