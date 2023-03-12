@@ -62,6 +62,8 @@ namespace BarterServerCheck
             services.AddScoped<IOpinionBL, OpinionBL>();
             services.AddScoped<ICategoryBL, CategoryBL>();
             services.AddScoped<ICategoryDAL, CategoryDAL>();
+            services.AddScoped<ICategoryUserBL, CategoryUserBL>();
+            services.AddScoped<ICategoryUserDAL, CategoryUserDAL>();
             services.AddScoped<ICustomerInquiryBL, CustomerInquiryBL>();
             services.AddScoped<ICustomerInquiryDAL, CustomerInquiryDAL>();
             services.AddScoped<ICityBL, CityBL>();
