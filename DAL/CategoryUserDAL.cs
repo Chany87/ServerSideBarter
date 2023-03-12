@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,17 @@ namespace DAL
         {
             try
             {
-                var Userns = bartersDBContext.CategoryUsers.Where(x => x.CategotyId == id).ToList();
+                var Userns = bartersDBContext.CategoryUsers
+                     .Where(x => x.CategotyId == id)
+                     .Include(x => x.User)
+                     .Select(c => new CategoryUser
+                     {
+                         Id = c.Id,
+                         UserId = c.UserId,
+                         CategotyId = c.CategotyId,
+                         User = new User { Id = c.Id, FirstName = c.User.FirstName, LastName = c.User.LastName }
+                     })
+                     .ToList();
                 return Userns;
             }
             catch (Exception ex)

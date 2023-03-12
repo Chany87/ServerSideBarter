@@ -12,5 +12,6 @@ namespace DTO
         public int Id { get; set; }
         public int? UserId { get; set; }
         public int? CategotyId { get; set; }
+        public virtual UserDTO User { get; set; }
     }
 }
