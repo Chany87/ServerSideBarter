@@ -51,7 +51,7 @@ namespace BarterServer.Controllers
             return x;
         }
         [HttpDelete]
-        [Route("DeleteCategory")]
+        [Route("DeleteCategory/{id}")]
         public bool DeleteCategory(int id)
         {
             return _categoryBL.DeleteCategory(id);
@@ -61,6 +61,19 @@ namespace BarterServer.Controllers
         public bool UpdateCategory(int id, [FromBody] CategoryDTO category)
         {
             return _categoryBL.UpdateCategory(id, category);
+        }
+        [HttpGet]
+        [Route("GetCategoriesByUserId/{id}")]
+        public ActionResult<List<CategoryDTO>> GetCategoriesByUserId(int id)
+        {
+            try
+            {
+                return Ok(_categoryBL.GetCategoriesByUserId(id));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

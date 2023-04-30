@@ -15,6 +15,7 @@ namespace DTO
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public string CityName { get; set; }
+        public int? CityId { get; set; }
         public int AllowingAccess { get; set; }
         public string Password { get; set; }
         public int? Stars { get; set; }

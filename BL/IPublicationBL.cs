@@ -10,6 +10,7 @@ namespace BL
         List<PublicationDTO> GetAllPublications();
         PublicationDTO GetPublicationById(int id);
         public List<PublicationDTO> GetPublicationsByCategoryId(int id);
+        public List<PublicationDTO> getPublicationsByUserId(int id);
         bool UpdatePublication(int id, PublicationDTO publication);
     }
 }

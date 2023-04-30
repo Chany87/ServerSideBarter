@@ -43,7 +43,7 @@ namespace BarterServer.Controllers
             return x;
         }
         [HttpDelete]
-        [Route("DeleteUser")]
+        [Route("DeleteUser/{id}")]
         public bool DeleteUser(int id)
         {
             return _userBL.DeleteUser(id);

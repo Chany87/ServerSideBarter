@@ -10,5 +10,7 @@ namespace DAL
         List<Category> GetAllCategories();
         Category GetCategoryById(int id);
         bool UpdateCategory(int id, Category category);
+        List<Category> GetCategoriesByUserId(int id);
+
     }
 }

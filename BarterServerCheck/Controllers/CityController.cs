@@ -32,7 +32,7 @@ namespace BarterServer.Controllers
             }
         }
         [HttpGet]
-        [Route("GetCityById{id}")]
+        [Route("GetCityById/{id}")]
         public ActionResult<CityDTO> GetCity(int id)
         {
             CityDTO city = _cityBL.GetCityById(id);

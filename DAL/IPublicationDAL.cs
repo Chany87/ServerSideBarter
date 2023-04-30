@@ -11,6 +11,8 @@ namespace DAL
         Publication GetPublicationById(int id);
         bool updatePublication(int id, Publication publication);
         public List<Publication> GetPublicationsByCategoryId(int id);
+        public List<Publication> getPublicationsByUserId(int id);
+
 
     }
 }

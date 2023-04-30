@@ -10,5 +10,6 @@ namespace BL
         List<CategoryDTO> GetAllCategories();
         CategoryDTO GetCategoryById(int id);
         bool UpdateCategory(int id, CategoryDTO categoryDTO);
+        List<CategoryDTO> GetCategoriesByUserId(int id);
     }
 }

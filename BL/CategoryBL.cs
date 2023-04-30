@@ -79,6 +79,10 @@ namespace BL
                 throw ex;
             }
         }
+        public List<CategoryDTO> GetCategoriesByUserId(int id) {
+            List<Category> categories = _categoryDAL.GetCategoriesByUserId(id);
+            return mapper.Map<List<CategoryDTO>>(categories);
+        }
 
     }
 }

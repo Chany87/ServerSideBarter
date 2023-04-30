@@ -31,15 +31,21 @@ namespace BL
         }
         public PublicationDTO GetPublicationById(int id)
         {
-            try
-            {
+           
                 var publication = _publicationDAL.GetPublicationById(id);
                 return _mapper.Map<PublicationDTO>(publication);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            
+         
+        }
+
+        public List<PublicationDTO> getPublicationsByUserId(int id)
+        {
+
+            List<Publication> publication = _publicationDAL.getPublicationsByUserId(id);
+
+            return _mapper.Map<List<PublicationDTO>>(publication);
+
+
         }
 
         public List<PublicationDTO> GetPublicationsByCategoryId(int id)

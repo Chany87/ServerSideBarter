@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,18 +73,19 @@ namespace DAL
         }
         public bool DeleteCategory(int id)
         {
-            try
-            {
-                Category category = bartersDBContext.Categories.SingleOrDefault(x => x.Id == id);
-                bartersDBContext.Categories.Remove(category);
-                bartersDBContext.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            Category category = bartersDBContext.Categories.SingleOrDefault(x => x.Id == id);
+            bartersDBContext.Categories.Remove(category);
+            bartersDBContext.SaveChanges();
+            return true;
 
+        }
+        public List<Category> GetCategoriesByUserId(int id)
+        {
+            var categories = bartersDBContext.CategoryUsers
+                     .Where(x => x.UserId == id)
+                     .Select(u=>u.Categoty)
+                     .ToList();
+            return categories;
         }
 
 

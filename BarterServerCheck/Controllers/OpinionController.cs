@@ -50,7 +50,7 @@ namespace BarterServer.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteOpinion")]
+        [Route("DeleteOpinion/{id}")]
         public bool DeleteOpinion(int id)
         {
             return _opinionBL.DeleteOpinion(id);

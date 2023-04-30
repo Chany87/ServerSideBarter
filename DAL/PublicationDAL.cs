@@ -39,14 +39,22 @@ namespace DAL
         {
             try
             {
-                //עם איזה פונקציה נכון להביא את כל הפרסומים?
-                var publications = BartersDBContext.Publications.Where(x => x.CategoryIdNeed == id).ToList();//Select(x=>x.CategoryIdNeed==id).ToList();
+                var publications = BartersDBContext.Publications.Where(x => x.CategoryIdNeed == id).ToList();
                 return publications;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        public List<Publication> getPublicationsByUserId(int id)
+        {
+
+            List<Publication> publications = BartersDBContext.Publications.Where(x => x.UserIdPublish == id).ToList();
+                return publications;
+            
+           
         }
         public bool AddPublication(Publication publication)
         {

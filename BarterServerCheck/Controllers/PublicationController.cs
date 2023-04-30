@@ -58,6 +58,22 @@ namespace BarterServer.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("getPublicationsByUserId/{id}")]
+
+        public ActionResult<List<Publication>> getPublicationsByUserId(int id)
+        {
+
+            try
+            {
+                return Ok(_publicationBL.getPublicationsByUserId(id));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("AddPublication")]
         public bool AddPublucation([FromBody] PublicationDTO publication)
@@ -66,6 +82,7 @@ namespace BarterServer.Controllers
             return x;
         }
         [HttpDelete]
+        [Route("DeletePublication/{id}")]
         public bool DeletePublication(int id)
         {
             return _publicationBL.DeletePublication(id);

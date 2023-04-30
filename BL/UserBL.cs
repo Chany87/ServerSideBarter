@@ -79,7 +79,6 @@ namespace BL
                     cu.CategotyId = c;
                     CategoryUserList.Add(cu);
                 });
-                //CategoryUserList לשלוח לשמירה את 
                 return _userDal.saveCategoryUserList(CategoryUserList);
             }
             else
@@ -88,7 +87,6 @@ namespace BL
         }
         public UserDTO GetUserByEmailAndPassword(string email, string password)
         {
-            //select * from Users; 
             try
             {
                 var User = _userDal.GetUserByEmailAndPassword(email, password);
@@ -101,6 +99,7 @@ namespace BL
                 throw ex;
             }
         }
+
         public bool DeleteUser(int id)
         {
             return _userDal.DeleteUser(id);
